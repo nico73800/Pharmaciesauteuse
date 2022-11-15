@@ -1,2 +1,2 @@
 # Pharmaciesauteuse
-Projet de pharmacie en nodeJS 
+Projet de pharmacie qui saute en nodeJS 
