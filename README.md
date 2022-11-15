@@ -1,4 +1,4 @@
-# Pharmacie sauteuse
+# Pharmacie Sauteuse
 ---
 #### Par **Lou CHALOYARD** , **Mamoun KERTANE** et **Tristan MALZIEU**
 ---
