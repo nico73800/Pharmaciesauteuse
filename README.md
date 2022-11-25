@@ -6,7 +6,7 @@
 Projet de pharmacie en nodeJS.
 
 ----
-V0 
+# V0 
 
 Création du projet :
 - Ajout de la partie médicament :
