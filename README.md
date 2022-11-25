@@ -8,7 +8,10 @@ Projet de pharmacie en nodeJS.
 ---
 **V0** 
 Création du projet :
-- Ajout des modifications pour les médicaments
+- Ajout de la partie médicament :
+  - Lecture des informations d'un médicament 
+  - Lecture de la liste des noms de médicament
+  - Ajout d'un médicament
 
 ---
 
