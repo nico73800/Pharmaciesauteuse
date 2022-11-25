@@ -1,0 +1,65 @@
+<%- include('header') %>
+
+    <div class="ui content segment">
+        <h1> Ajout médicament </h1>
+        <div class="ui container content segment">
+            <h2 class="ui blue header"> Recherche d'une médicament : </h2>
+            <form class="ui form" enctype="application/x-www-form-urlencoded" action="/medicaments/add" method="get">
+                <div class="ui container content segment">
+                    <h2> Information Générale : </h2>
+                    <br>
+                    <div class="ui container four column grid">
+                        <div class="column">
+                            <label class="ui text" for="nom"> Nom : </label>
+                            <input class="ui input" type="text" name="nom" id="nom" required>
+                        </div>
+                        <div class="column">
+                            <label class="ui text" for="dosage"> Dosage : </label>
+                            <input class="ui input required" type="text" name="dosage" id="dosage">
+                        </div>
+                        <div class="column">
+                            <label for="frequences"> Fréquences : </label>
+                            <input class="ui input" type="text"name="frequences" id="frequences" required>
+                        </div>
+                        <div class="column">
+                            <label for="types"> Types : </label>
+                            <select class="ui selection" name="types" id="types">
+                                <option value="Comprimés"> Comprimés </option>
+                                <option value="Pastilles"> Pastilles </option>
+                                <option value="Doses"> Doses </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui container content segment">
+                    <h2> Information stocks et fournisseurs : </h2>
+                    <br>
+                    <div class="ui container three column grid">
+                        <div class="column">
+                            <label class="ui text" for="stocks"> Stocks : </label>
+                            <input class="ui input" type="text" name="stocks" id="stocks" required>
+                        </div>
+                        <div class="column">
+                            <label class="ui text" for="seuil_alerte"> Seuil alerte : </label>
+                            <input class="ui input" type="text" name="seuil_alerte" id="seuil_alerte" required>
+                        </div>
+                        <div class="column">
+                            <label for="fournisseur"> Fournisseur : </label>
+                            <input class="ui input" type="text" name="fournisseur" id="fournisseur" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui two column grid">
+
+                    <div class="column">
+                        <button class="ui button blue" type="submit"> Ajouter </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<%- include('footer') %>

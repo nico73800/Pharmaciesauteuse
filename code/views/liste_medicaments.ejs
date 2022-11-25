@@ -1,0 +1,68 @@
+<%- include('header') %>
+
+    <div class="ui content segment">
+        <h1> Page médicaments </h1>
+        <div class="ui container content segment">
+            <h2 class="ui blue header"> Recherche d'un médicament : </h2>
+            <form class="ui form" action="/medicaments/recherche_medicament" method="get">
+                <div class="ui two column grid">
+                    <div class="column">
+                        <select class="ui selection" name="nom" id="nom">
+                                <% medicament.forEach((data) => { %>
+                                    <option class="ui" value="<%=data['id']%>">
+                                        <%= data['nom'] %>
+                                    </option>
+                                <% }) %>
+                        </select>
+                    </div>
+                    <div class="column">
+                        <button class="ui button blue" type="submit"> Accéder </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="ui section divider"> </div>
+
+        <div class="ui container content segment">
+            <h2 class="ui blue header"> Ajout d'un médicament : </h2>
+            <a href="/medicaments/insertion_medicament">  <button class="ui button blue" type="submit"> Ajout d'un médicament </button> </a>
+        </div>
+
+        <div class="ui section divider"> </div>
+
+        <div class="ui container content segment">
+            <% if (medicament.length > 0) { %>
+                <h3> Légende : </h3>
+                <br>
+                <div class="ui three column grid">
+                    <div class="column">
+                        <p class="ui negative message">Commandes nécessaires </p>
+                    </div>
+                    <div class="column">
+                        <p class="ui warning message"> Stocks à contrôler </p>
+                    </div>
+                    <div class="column">
+                        <p class="ui positive message"> Stocks bons </p>
+                    </div>
+                </div>
+                <h2 class="ui violet header"> Liste des médicaments : </h2>
+                <div class="ui content container">
+                    <% medicament.forEach((data) => { %>
+                        <% if (data.stocks < data.seuil_alerte) { %>
+                            <div id="<%= data.id %>" class="ui segment negative message"> <%= data.nom %> </div>
+                        <% } else if (data.stocks === data.seuil_alerte) { %>
+                            <div id="<%= data.id %>" class="ui segment warning message"> <%= data.nom %> </div>
+                        <% } else { %>
+                            <div id="<%= data.id %>" class="ui segment positive message"> <%= data.nom %> </div>
+                        <% } %>
+                    <% }) %>
+                </div>
+
+            <% } else { %>
+                <h2> Aucun médicament </h2>
+            <% }%>
+        </div>
+    </div>
+
+<%- include('footer') %>
