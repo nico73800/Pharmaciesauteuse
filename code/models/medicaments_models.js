@@ -1,5 +1,6 @@
 const connexion = require('./connexion_bdd');
 
+
 const readMedicament = (req, res) => {
     connexion.module_connexion.query("SELECT * FROM medicaments", (err, result, fields) => {
         if (!err) {
@@ -15,8 +16,8 @@ const readMedicament = (req, res) => {
     });
 }
 
-const readUnMedicament = (req, res, idMedoc) => {
-    connexion.module_connexion.query("SELECT * FROM medicaments WHERE id = ? ", [connexion.module_connexion.escape(parseInt(idMedoc))] , (err, lignes, champs) =>{
+const readUnMedicament = (req, res, idMedicament) => {
+    connexion.module_connexion.query("SELECT * FROM medicaments WHERE id = ? ", [parseInt(idMedicament)] , (err, lignes, champs) =>{
         if (!err) {
             if (lignes.length > 0) {
                 res.render('recherche_medicament', {infos: lignes});
@@ -57,11 +58,10 @@ const insertMedicament = (req, res) => {
             }
         });
     }
-
 }
 
 module.exports = {
     readMedicament,
     readUnMedicament,
-    insertMedicament
+    insertMedicament,
 }

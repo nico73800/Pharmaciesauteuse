@@ -1,60 +1,103 @@
 <%- include('header') %>
 
-    <div class="ui content segment">
-        <h1> Ajout médicament </h1>
-        <div class="ui container content segment">
-            <h2 class="ui blue header"> Recherche d'une médicament : </h2>
-            <form class="ui form" enctype="application/x-www-form-urlencoded" action="/medicaments/add" method="get">
-                <div class="ui container content segment">
-                    <h2> Information Générale : </h2>
-                    <br>
-                    <div class="ui container four column grid">
-                        <div class="column">
-                            <label class="ui text" for="nom"> Nom : </label>
-                            <input class="ui input" type="text" name="nom" id="nom" required>
-                        </div>
-                        <div class="column">
-                            <label class="ui text" for="dosage"> Dosage : </label>
-                            <input class="ui input required" type="text" name="dosage" id="dosage">
-                        </div>
-                        <div class="column">
-                            <label for="frequences"> Fréquences : </label>
-                            <input class="ui input" type="text"name="frequences" id="frequences" required>
-                        </div>
-                        <div class="column">
-                            <label for="types"> Types : </label>
-                            <select class="ui selection" name="types" id="types">
-                                <option value="Comprimés"> Comprimés </option>
-                                <option value="Pastilles"> Pastilles </option>
-                                <option value="Doses"> Doses </option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ui container content segment">
-                    <h2> Information stocks et fournisseurs : </h2>
-                    <br>
-                    <div class="ui container three column grid">
-                        <div class="column">
-                            <label class="ui text" for="stocks"> Stocks : </label>
-                            <input class="ui input" type="text" name="stocks" id="stocks" required>
-                        </div>
-                        <div class="column">
-                            <label class="ui text" for="seuil_alerte"> Seuil alerte : </label>
-                            <input class="ui input" type="text" name="seuil_alerte" id="seuil_alerte" required>
-                        </div>
-                        <div class="column">
-                            <label for="fournisseur"> Fournisseur : </label>
-                            <input class="ui input" type="text" name="fournisseur" id="fournisseur" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ui two column grid">
-
+    <div class="p-2 is-responsive">
+        <div class="container section card">
+            <h1 class="card-header-title title is-underlined"> Ajout d'un médicament : </h1>
+            <form class="card-content" action="/medicaments/add" method="get">
+                <h2 class="card-header-title subtitle"> Information Générale : </h2>
+                <div class="columns is-mobile is-responsive">
                     <div class="column">
-                        <button class="ui button blue" type="submit"> Ajouter </button>
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="nom"> Nom </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="nom" id="nom" placeholder="nom médicament" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="dosage"> Dosage </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="dosage" id="dosage" placeholder="Dosage cachet">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-mobile is-responsive">
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="frequences"> Fréquences</label>
+                            </div>
+                            <div class="contro">
+                                <input class="input" type="text" name="frequences" id="frequences" placeholder="Combien" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="types"> Types </label>
+                            </div>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="types" id="types">
+                                        <option value="Comprimés"> Comprimés </option>
+                                        <option value="Pastilles"> Pastilles </option>
+                                        <option value="Doses"> Doses </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="is-divider"></div>
+
+                <h2 class="card-header-title subtitle"> Information stocks et fournisseurs : </h2>
+                <div class="columns is-mobile is-responsive">
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="stocks"> Stocks présent </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="stocks" id="stocks" placeholder="Combien de médicament" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="seuil_alerte"> Seuil d'alerte </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="seuil_alerte" id="seuil_alerte" placeholder="Quantité stock nécessaire" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="fournisseur"> Fournisseur </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="fournisseur" id="fournisseur" placeholder="Fournisseur" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns is-mobile is-responsive">
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <button class="button is-info" type="submit"> Ajouter </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>

@@ -1,61 +1,65 @@
 <%- include('header') %>
-    <div class="ui segment">
-        <div class="ui content text">
-            <h2> Informations du médicament trouvé : <span class="ui violet header"> <%= infos[0]['nom'] %> </span> </h2>
-        </div>
-        <br>
-        <div class="ui content container">
+    <div class="p-2 is-responsive">
+        <div class="container section card">
+                <h2 class="card-header-title title"> Informations du médicament trouvé :&nbsp<span class="has-text-info"> <%= infos[0]['nom'] %> </span> </h2>
+            <div class="card-content content container">
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th> Information </th>
+                            <th> Données </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> Identifiant </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['id'] %></td>
+                        </tr>
 
-            <table class="ui table celled">
-                <thead>
-                    <tr>
-                        <th> Information </th>
-                        <th> Données </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td> Identifiant </td>
-                        <td id="<%= infos[0]['id'] %>"> <%= infos[0]['id'] %></td>
-                    </tr>
+                        <tr>
+                            <td> Nom </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['nom'] %></td>
+                        </tr>
 
-                    <tr>
-                        <td> Nom  </td>
-                        <td id="<%= infos[0]['id'] %>"> <%= infos[0]['nom'] %></td>
-                    </tr>
+                        <tr>
+                            <td> Dosage </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['dosage'] %></td>
+                        </tr>
 
-                    <tr>
-                        <td> Dosage </td>
-                        <td id="<%= infos[0]['id'] %>"> <%= infos[0]['dosage'] %></td>
-                    </tr>
+                        <tr>
+                            <td> Fréquences </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['frequences'] %></td>
+                        </tr>
 
-                    <tr>
-                        <td> Fréquences </td>
-                        <td id="<%= infos[0]['id'] %>"> <%= infos[0]['frequences'] %></td>
-                    </tr>
+                        <tr>
+                            <td> Types </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['type'] %></td>
+                        </tr>
 
-                    <tr>
-                        <td> Types </td>
-                        <td id="<%= infos[0]['id'] %>"> <%= infos[0]['type'] %></td>
-                    </tr>
+                        <tr>
+                            <td> Stocks </td>
+                            <% if (infos[0]['stocks'] < infos[0]['seuil_alerte']) { %>
+                                <td class="has-background-danger" id="<%= infos[0]['id'] %>"> <%= infos[0]['stocks'] %></td>
+                            <% } else if (infos[0]['stocks'] === infos[0]['seuil_alerte']) { %>
+                                <td class="has-background-warning" id="<%= infos[0]['id'] %>"> <%= infos[0]['stocks'] %></td>
+                            <% } else { %>
+                                <td class="has-background-success" id="<%= infos[0]['id'] %>"> <%= infos[0]['stocks'] %></td>
+                            <% } %>
 
-                    <tr>
-                        <td> Stocks </td>
-                        <td id="<%= infos[0]['id'] %>"> <%= infos[0]['stocks'] %></td>
+                        </tr>
 
-                    </tr>
+                        <tr>
+                            <td> Seuil d'alerte </td>
+                            <td id="<%= infos[0]['id'] %>">  <%= infos[0]['seuil_alerte'] %></td>
+                        </tr>
 
-                    <tr>
-                        <td> Seuil d'alerte </td>
-                        <td id="<%= infos[0]['id'] %>">  <%= infos[0]['seuil_alerte'] %></td>
-                    </tr>
-
-                    <tr>
-                        <td> Fournisseur(s) </td>
-                        <td id="<%= infos[0]['id'] %>"> <%= infos[0]['fournisseur'] %></td>
-                    </tr>
-                </tbody>
-            </table>
+                        <tr>
+                            <td> Fournisseur(s) </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['fournisseur'] %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 

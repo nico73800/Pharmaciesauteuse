@@ -1,12 +1,14 @@
 const express = require('express');
 const createError = require('http-errors')
-const ejs = require('ejs');
+// const ejs = require('ejs');
 const path = require("path");
 let bodyParser = require('body-parser');
 const urlencodedparser = bodyParser.urlencoded({ extended: false});
 const Routeur_medicament = require('./routes/route_medicament');
 
-app = express();
+
+let app = express();
+
 
 // Paramétrage de l'app
 app.set('view engine', 'ejs');
@@ -19,8 +21,9 @@ app.listen(3000, "127.0.0.1", () => {
     console.log("Project okay")
 });
 
+// Accueil
 app.get('/', (req,res) => {
-    res.send("Acceuil à faire !");
+    res.send("Accueil à faire !");
 });
 
 // Utilisation des routeurs

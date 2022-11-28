@@ -26,5 +26,5 @@ module.exports = {
     medicament_recherche,
     medicament_insert,
     medicament_insert_page,
-    medicament_erreur_recherche
+    medicament_erreur_recherche,
 }

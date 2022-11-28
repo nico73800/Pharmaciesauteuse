@@ -1,68 +1,93 @@
 <%- include('header') %>
 
-    <div class="ui content segment">
-        <h1> Page médicaments </h1>
-        <div class="ui container content segment">
-            <h2 class="ui blue header"> Recherche d'un médicament : </h2>
-            <form class="ui form" action="/medicaments/recherche_medicament" method="get">
-                <div class="ui two column grid">
-                    <div class="column">
-                        <select class="ui selection" name="nom" id="nom">
+    <div class="p-2 is-responsive">
+        <div class="container section card">
+            <h2 class="card-header-title title"> Recherche d'un médicament : </h2>
+            <form class="card-content" action="/medicaments/recherche_medicament" method="get">
+                <div class="has-addons field">
+                    <div class="control">
+                        <div class="select">
+                            <select name="nom" id="nom">
                                 <% medicament.forEach((data) => { %>
-                                    <option class="ui" value="<%=data['id']%>">
+                                    <option value="<%=data['id']%>">
                                         <%= data['nom'] %>
                                     </option>
                                 <% }) %>
-                        </select>
+                            </select>
+                        </div>
                     </div>
-                    <div class="column">
-                        <button class="ui button blue" type="submit"> Accéder </button>
+                    <div class="control">
+                        <button class="button is-info" type="submit"> Accéder </button>
                     </div>
                 </div>
             </form>
-        </div>
 
-        <div class="ui section divider"> </div>
+            <div class="is-divider"></div>
 
-        <div class="ui container content segment">
-            <h2 class="ui blue header"> Ajout d'un médicament : </h2>
-            <a href="/medicaments/insertion_medicament">  <button class="ui button blue" type="submit"> Ajout d'un médicament </button> </a>
-        </div>
+            <h2 class="card-header-title title"> Ajout d'un médicament : </h2>
+            <div class="card-content">
+                <div class="control">
+                    <a href="/medicaments/insertion_medicament">  <button class="button is-info" type="submit"> Ajout d'un médicament </button> </a>
+                </div>
+            </div>
 
-        <div class="ui section divider"> </div>
-
-        <div class="ui container content segment">
             <% if (medicament.length > 0) { %>
-                <h3> Légende : </h3>
-                <br>
-                <div class="ui three column grid">
-                    <div class="column">
-                        <p class="ui negative message">Commandes nécessaires </p>
+                <div class="is-divider"></div>
+                <h2 class="card-header-title title"> Listes des médicaments : </h2>
+                <div class="card-content">
+                    <h3 class="card-header card-header-title subtitle"> Légende : </h3>
+                    <div class="card-content columns is-mobile is-responsive">
+                        <div class="column">
+                            <div class="message is-danger">
+                                <p class="message-body"> Commandes nécessaires </p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="message is-warning">
+                                <p class="message-body"> Stocks à contrôler </p>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="message is-success">
+                                <p class="message-body"> Stocks bons </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="column">
-                        <p class="ui warning message"> Stocks à contrôler </p>
-                    </div>
-                    <div class="column">
-                        <p class="ui positive message"> Stocks bons </p>
-                    </div>
-                </div>
-                <h2 class="ui violet header"> Liste des médicaments : </h2>
-                <div class="ui content container">
-                    <% medicament.forEach((data) => { %>
-                        <% if (data.stocks < data.seuil_alerte) { %>
-                            <div id="<%= data.id %>" class="ui segment negative message"> <%= data.nom %> </div>
-                        <% } else if (data.stocks === data.seuil_alerte) { %>
-                            <div id="<%= data.id %>" class="ui segment warning message"> <%= data.nom %> </div>
-                        <% } else { %>
-                            <div id="<%= data.id %>" class="ui segment positive message"> <%= data.nom %> </div>
-                        <% } %>
-                    <% }) %>
                 </div>
 
+                <div class="card-content">
+                    <h3 class="card-header card-header-title subtitle"> Liste : </h3>
+                    <div class="card-content columns is-mobile is-responsive">
+                        <% medicament.forEach((data) => { %>
+                            <% if (data.stocks < data.seuil_alerte) { %>
+                                <div class="column">
+                                    <div id="<%= data.id %>" class="message is-danger">
+                                        <p class="message-body"><%= data.nom %> </p>
+                                    </div>
+                                </div>
+                            <% } else if (data.stocks === data.seuil_alerte) { %>
+                                <div class="column">
+                                    <div id="<%= data.id %>" class="message is-warning">
+                                        <p class="message-body"><%= data.nom %> </p>
+                                    </div>
+                                </div>
+                            <% } else { %>
+                                <div class="column">
+                                    <div id="<%= data.id %>" class="message is-success">
+                                        <p class="message-body"> <%= data.nom %> </p>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <% }) %>
+                    </div>
+                </div>
             <% } else { %>
-                <h2> Aucun médicament </h2>
+                <div class="card-content">
+                    <h2 class="card-header-title title"> Aucun médicament </h2>
+                </div>
             <% }%>
         </div>
     </div>
+
 
 <%- include('footer') %>
