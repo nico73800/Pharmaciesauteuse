@@ -2,9 +2,10 @@
 
     <div class="p-2 is-responsive">
         <div class="container section card">
-            <h1 class="card-header-title title is-underlined"> Ajout d'un médicament : </h1>
-            <form class="card-content" action="/medicaments/add" method="get">
+            <h1 class="card-header-title title is-underlined"> Modification d'un médicament : </h1>
+            <form class="card-content"  action="/medicaments/update" method="get">
                 <h2 class="card-header-title subtitle"> Information Générale : </h2>
+                <input type="hidden" name="idMedicament" value="<%= medicament[0]['id'] %>">
                 <div class="columns is-mobile is-responsive">
                     <div class="column">
                         <div class="has-addons field">
@@ -12,7 +13,7 @@
                                 <label class="label button is-static" for="nom"> Nom </label>
                             </div>
                             <div class="control">
-                                <input class="input" type="text" name="nom" id="nom" placeholder="nom médicament" required>
+                                <input class="input" type="text" name="nom" id="nom" placeholder="Nom cachet" value="<%= medicament[0]['nom'] %>" required>
                             </div>
                         </div>
                     </div>
@@ -22,7 +23,7 @@
                                 <label class="label button is-static" for="dosage"> Dosage </label>
                             </div>
                             <div class="control">
-                                <input class="input" type="text" name="dosage" id="dosage" placeholder="Dosage cachet">
+                                <input class="input" type="text" name="dosage" id="dosage" placeholder="Dosage cachet" value="<%= medicament[0]['dosage'] %>">
                             </div>
                         </div>
                     </div>
@@ -34,7 +35,7 @@
                                 <label class="label button is-static" for="frequences"> Fréquences</label>
                             </div>
                             <div class="contro">
-                                <input class="input" type="text" name="frequences" id="frequences" placeholder="Combien" required>
+                                <input class="input" type="text" name="frequences" id="frequences" placeholder="Combien" value="<%= medicament[0]['frequences'] %>" required>
                             </div>
                         </div>
                     </div>
@@ -46,9 +47,19 @@
                             <div class="control">
                                 <div class="select">
                                     <select name="types" id="types">
-                                        <option value="Comprimé"> Comprimé </option>
-                                        <option value="Pastille"> Pastille </option>
-                                        <option value="Dose"> Dose </option>
+                                        <% if (medicament[0]['type'].toString() === "Comprimé") { %>
+                                            <option selected value="Comprimés"> Comprimé </option>
+                                            <option value="Pastilles"> Pastille </option>
+                                            <option value="Doses"> Dose </option>
+                                        <% } else if (medicament[0]['type'].toString() === "Pastille")  { %>
+                                            <option value="Comprimés"> Comprimé </option>
+                                            <option selected value="Pastilles"> Pastille </option>
+                                            <option value="Doses"> Dose </option>
+                                        <% } else { %>
+                                            <option  value="Comprimé"> Comprimé </option>
+                                            <option value="Pastille"> Pastille </option>
+                                            <option selected value="Dose"> Dose </option>
+                                        <% }%>
                                     </select>
                                 </div>
                             </div>
@@ -66,7 +77,7 @@
                                 <label class="label button is-static" for="stocks"> Stocks présent </label>
                             </div>
                             <div class="control">
-                                <input class="input" type="text" name="stocks" id="stocks" placeholder="Combien de médicament" required>
+                                <input class="input" type="text" name="stocks" id="stocks" placeholder="Combien de médicament" value="<%= medicament[0]['stocks'] %>" required>
                             </div>
                         </div>
                     </div>
@@ -76,7 +87,7 @@
                                 <label class="label button is-static" for="seuil_alerte"> Seuil d'alerte </label>
                             </div>
                             <div class="control">
-                                <input class="input" type="text" name="seuil_alerte" id="seuil_alerte" placeholder="Quantité stock nécessaire" required>
+                                <input class="input" type="text" name="seuil_alerte" id="seuil_alerte" placeholder="Quantité stock nécessaire" value="<%= medicament[0]['seuil_alerte'] %>" required>
                             </div>
                         </div>
                     </div>
@@ -86,7 +97,7 @@
                                 <label class="label button is-static" for="fournisseur"> Fournisseur </label>
                             </div>
                             <div class="control">
-                                <input class="input" type="text" name="fournisseur" id="fournisseur" placeholder="Fournisseur" required>
+                                <input class="input" type="text" name="fournisseur" id="fournisseur" placeholder="Fournisseur" value="<%= medicament[0]['fournisseur'] %>" required>
                             </div>
                         </div>
                     </div>

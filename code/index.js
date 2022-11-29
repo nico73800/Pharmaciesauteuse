@@ -1,6 +1,6 @@
 const express = require('express');
 const createError = require('http-errors')
-// const ejs = require('ejs');
+const ejs = require('ejs');
 const path = require("path");
 let bodyParser = require('body-parser');
 const urlencodedparser = bodyParser.urlencoded({ extended: false});
