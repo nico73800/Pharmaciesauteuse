@@ -1,6 +1,6 @@
 # Pharmacie Sauteuse
 ---
-### Par *Lou CHALOYARD* , *Mamoun KERTANE* et *Tristan MALZIEU*™
+### Par *Nicolas CHALOYARD* , *Mamoun KERTANE* et *Tristan MALZIEU*™
 ---
 
 Projet de pharmacie en nodeJS.
