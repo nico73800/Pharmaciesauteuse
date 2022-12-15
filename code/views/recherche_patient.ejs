@@ -1,0 +1,61 @@
+<!-- Page de recherche des patients -->
+
+<%- include('header') %>
+    <div class="p-2 is-responsive">
+        <div class="container section card">
+                <h2 class="card-header-title title"> Informations du patient trouvé :&nbsp<span class="has-text-info"> <%= infos[0]['nom'] %> </span> </h2>
+            <div class="card-content content container">
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th> Information </th>
+                            <th> Données </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> Identifiant </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['id'] %></td>
+                        </tr>
+
+                        <tr>
+                            <td> Nom </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['nom'] %></td>
+                        </tr>
+
+                        <tr>
+                            <td> Prénom </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['prenom'] %></td>
+                        </tr>
+
+                        <tr>
+                            <td> Téléphone </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['telephone'] %></td>
+                        </tr>
+
+                        <tr>
+                            <td> Adresse mail </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['mail] %></td>
+                        </tr>
+
+                        <tr>
+                            <td> Date de naissance </td>
+                            <td id="<%= infos[0]['id'] %>">  <%= infos[0]['date_naiss'] %></td>
+                        </tr>
+
+                        <tr>
+                            <td> Numéro de sécurité sociale </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['securite_sociale'] %></td>
+                        </tr>
+
+                        <tr>
+                            <td> Mutuelle </td>
+                            <td id="<%= infos[0]['id'] %>"> <%= infos[0]['mutuelle'] %></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%- include('footer') %>

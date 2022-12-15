@@ -1,0 +1,94 @@
+<!-- Page de modification du patient -->
+
+<%- include('header') %>
+
+    <div class="p-2 is-responsive">
+        <div class="container section card">
+            <h1 class="card-header-title title is-underlined"> Modification d'un patient : </h1>
+            <form class="card-content"  action="/patients/update" method="get">
+                <h2 class="card-header-title subtitle"> Informations Générales : </h2>
+                <input type="hidden" name="idPatient" value="<%= patient[0]['id'] %>">
+                <div class="columns is-mobile is-responsive">
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="nom"> Nom </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="nom" id="nom" placeholder="Nom du patient" value="<%= patient[0]['nom'] %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="prenom"> Prénom </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="prenom" id="prenom" placeholder="Prénom du patient" value="<%= patient[0]['prenom'] %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="telephone"> Téléphone</label>
+                            </div>
+                            <div class="contro">
+                                <input class="input" type="text" name="telephone" id="telephone" placeholder="Numéro de Téléphone" value="<%= patient[0]['telephone'] %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="mail"> Adresse Mail</label>
+                            </div>
+                            <div class="contro">
+                                <input class="input" type="text" name="mail" id="mail" placeholder="" value="<%= patient[0]['mail'] %>" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="is-divider"></div>
+
+                <h2 class="card-header-title subtitle"> Informations Supplémentaires : </h2>
+                <div class="columns is-mobile is-responsive">
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="date_naiss"> Date de naissance </label>
+                            </div>
+                            <div class="control">
+                                <input type="date" id="date_naiss" name="date_naiss" value="2018-07-22" min="1900-01-01" max="2022-12-31" value="<%= patient[0]['date_naiss'] %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="securite_sociale"> Numéro de sécurité sociale </label>
+                            </div>
+                            <div class="contro">
+                                <input class="input" type="text" name="securite_sociale" id="securite_sociale" value="<%= patient[0]['securite_sociale'] %>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="mutuelle"> Mutuelle </label>
+                            </div>
+                            <div class="contro">
+                                <input class="input" type="text" name="mutuelle" id="mutuelle" value="<%= patient[0]['mutuelle'] %>" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<%- include('footer') %>

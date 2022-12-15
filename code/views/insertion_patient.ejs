@@ -1,0 +1,101 @@
+<!-- Page d'insertion du patient -->
+
+<%- include('header') %>
+
+    <div class="p-2 is-responsive">
+        <div class="container section card">
+            <h1 class="card-header-title title is-underlined"> Ajout d'un Patient : </h1>
+            <form class="card-content" action="/patients/add" method="get">
+                <h2 class="card-header-title subtitle"> Informations Générales : </h2>
+                <div class="columns is-mobile is-responsive">
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="nom"> Nom </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="nom" id="nom" placeholder="Nom du patient" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="prenom"> Prénom </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="prenom" id="prenom" placeholder="Prénom du patient" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="telephone"> Téléphone</label>
+                            </div>
+                            <div class="contro">
+                                <input class="input" type="text" name="telephone" id="telephone" placeholder="Numéro de Téléphone" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="mail"> Adresse Mail</label>
+                            </div>
+                            <div class="contro">
+                                <input class="input" type="text" name="mail" id="mail" placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="is-divider"></div>
+
+                <h2 class="card-header-title subtitle"> Informations Supplémentaires : </h2>
+                <div class="columns is-mobile is-responsive">
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="date_naiss"> Date de naissance </label>
+                            </div>
+                            <div class="control">
+                                <input type="date" id="date_naiss" name="date_naiss" value="" min="1918-01-01"  max="2022-31-01">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="securite_sociale"> Numéro de sécurité sociale </label>
+                            </div>
+                            <div class="contro">
+                                <input class="input" type="text" name="securite_sociale" id="securite_sociale" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="has-addons field">
+                            <div class="control">
+                                <label class="label button is-static" for="mutuelle"> Mutuelle </label>
+                            </div>
+                            <div class="control">
+                                <input class="input" type="text" name="mutuelle" id="mutuelle" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-mobile is-responsive">
+                        <div class="column">
+                            <div class="has-addons field">
+                                <div class="control">
+                                    <button class="button is-info" type="submit"> Ajouter </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+            </form>
+        </div>
+    </div>
+
+<%- include('footer') %>
